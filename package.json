@@ -1,0 +1,15 @@
+{
+  "name": "pizzapresenter",
+  "version": "1.0.0",
+  "description": "create a data set for pizza",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "csv-writer": "^1.6.0",
+    "faker": "^5.0.0"
+  }
+}
