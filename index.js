@@ -1,4 +1,5 @@
 let faker = require('faker');
+const { random } = require('faker');
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 
 // Sets the headers id and titles of the CSV
@@ -76,8 +77,7 @@ function pizzaFactory() {
 let customers = []
 
 for(let i = 0; i < 25; i++) {
-  let fakeName = faker.fake("{{name.firstName}} {{name.lastName}}")
-  customers.push(fakeName);
+  customers.push(faker.fake("{{name.firstName}} {{name.lastName}}"))
 }
 
 let records = []
@@ -85,7 +85,8 @@ let records = []
 // Creating 40 orders of pizza, there is only 1 pizza per order at the moment 
 for(let i = 0; i < 40; i++) {
   let pizza = pizzaFactory();
-  let randomCustomerIdx = Math.floor(Math.random() * 25)
+  let randomCustomerIdx = Math.floor(Math.random() * 26)
+  console.log(randomCustomerIdx > 25, randomCustomerIdx)
 
   // This could be a separate function... 
   let newRecord = {}
@@ -100,6 +101,8 @@ for(let i = 0; i < 40; i++) {
   newRecord.customerName = customers[randomCustomerIdx]
   records.push(newRecord)
 }
+
+
 
 csvWriter.writeRecords(records)       // returns a promise
   .then(() => {
