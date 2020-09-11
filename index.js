@@ -101,6 +101,7 @@ for(let i = 0; i < 40; i++) {
   records.push(newRecord)
 }
 
+
 csvWriter.writeRecords(records)       // returns a promise
   .then(() => {
     console.log('...Done');
